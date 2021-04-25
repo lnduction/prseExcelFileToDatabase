@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="shortcut icon" href="/icons8-internet-100.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+    <title>SanChe Utils</title>
+</head>
+<body class="bg-light">
+<div class="container">
+    <div class="py-5 text-center">
+        <h5>Update data from excel</h5>
+    </div>
+    <div class="d-flex justify-content-center">
+        <form method="post" action="/update-data-from-excel" enctype="multipart/form-data">
+            <div class="col-12">
+                <label for="tableName" class="form-label text-left">Table name</label>
+                <div class="form-group">
+                    <input type="text" name="tableName" class="form-control" id="tableName" placeholder="Table name">
+                </div>
+            </div>
+            <div class="col-12">
+                <label for="formFile" class="form-label text-left">Excel file</label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" name="excelFile" class="custom-file-input" id="formFile" onchange="
+                                $(this).siblings('.custom-file-label').addClass('selected').html($(this).val().split('\\').pop())"/>
+                        <label class="custom-file-label" for="formFile">Choose file</label>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-success mt-4">Insert data</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="mt-5 py-4 px-5 mx-5 d-flex justify-content-between">
+    <div class="py-5 text-center d-flex justify-content-center col-7">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th scope="col">id-int</th>
+                <th scope="col">name-varchar</th>
+                <th scope="col">text-text</th>
+                <th scope="col">cost-decimal</th>
+                <th scope="col">is_new-tinyint</th>
+                <th scope="col">color-text</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>1</td>
+                <td>Knife</td>
+                <td>Some text</td>
+                <td>73.63</td>
+                <td>true</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Stone</td>
+                <td>Some text</td>
+                <td>3256.80</td>
+                <td>true</td>
+                <td>Gray</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Napkin</td>
+                <td>Some text</td>
+                <td>36.10</td>
+                <td>DEFAULT</td>
+                <td>White</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-5 py-5">
+        <div class="row d-flex justify-content-start" >
+            <div>
+                <p>- The first row should look like column_name-extension</p>
+                <p>- File must be created by Excel no order than 2007</p>
+                <p>- Parser support only int, varchar, text, decimal, tinyint, date, datetime extensions</p>
+                <p>- Empty cell is NULL, DEFAULT cell is default value</p>
+                <p>- Parser support only int, varchar, text, decimal, tinyint, date, datetime extensions</p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="   crossorigin="anonymous"></script>
+</html>
